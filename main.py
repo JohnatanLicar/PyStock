@@ -5,6 +5,7 @@ def titulo(texto):
     print("# "*25)
     print(texto.center(50))
     print("# "*25)
+
 def lista():
     print("""
     1 - Cliente
@@ -13,14 +14,29 @@ def lista():
     4 - Produtos
     5 - Colaborador
     0 - Retornar ou Menu""")
+
 def TrataResp(opcao):
     while True:
         if opcao.isnumeric():
             return int(opcao)
         else:
             return None
-def MenuPrinc():
-    while True:
+
+def PrintOpInvalida():
+    print(f"\x1b[31;1m Opcao nao existe ou invalida, por favor verifique a opcao correta e tente novamente\x1b[0m")
+
+def SubOpcao(selecao,texto):
+    if selecao == "Cadastro":
+        return f"Janela para Cadastro de {texto}"
+    elif selecao == "Consultar":
+        return f"Janela para Consulta de {texto}"
+    elif selecao == "Alterar/Deletar":
+        return f"Janela para Alterar/Deletar de {texto}"
+    
+        
+
+def MenuPrinc(sair):
+    while sair == 1:
         titulo("Menu Principal - PyStock")            
         print("""
             1 - Cadastro
@@ -30,9 +46,10 @@ def MenuPrinc():
         resp = input(">>> ")
         valida = TrataResp(resp)
         if valida is None:
-            print("Opcao invalida")
+            PrintOpInvalida()
         elif valida == 0:
             print("Adeus, Volte sempre")          
+            sair = 0
             break
         elif valida == 1:
             while True:
@@ -41,9 +58,32 @@ def MenuPrinc():
                     resp = input(">>> ")
                     cadastro = TrataResp(resp)
                     if cadastro is None:
-                        print("Opcao invalida, por favor escolha uma opcao valida!")
+                        PrintOpInvalida()
                     elif cadastro == 0:
-                        MenuPrinc()
+                        MenuPrinc(1)
+                    elif cadastro == 1:
+                        print(SubOpcao("Cadastro","Clientes"))
+                        sair = 0
+                        break
+                    elif cadastro == 2:
+                        print(SubOpcao("Cadastro","Usuarios"))
+                        sair = 0
+                        break
+                    elif cadastro == 3:
+                        print(SubOpcao("Cadastro","Fornecedor"))
+                        sair = 0
+                        break
+                    elif cadastro == 4:
+                        print(SubOpcao("Cadastro","Produtos"))
+                        sair = 0
+                        break
+                    elif cadastro == 5:
+                        print(SubOpcao("Cadastro","Colaborador"))
+                        sair = 0
+                        break
+                    else:
+                        PrintOpInvalida()
+
         
         elif valida == 2:
             while True:
@@ -52,24 +92,64 @@ def MenuPrinc():
                 resp = input(">>> ")
                 consulta = TrataResp(resp)
                 if consulta is None:
-                    print("Opcao invalida, por favor escolha uma opcao valida!")
+                    PrintOpInvalida()
                 elif consulta == 0:
-                    MenuPrinc()
+                    MenuPrinc(1)
+                elif consulta == 1:
+                    print(SubOpcao("Consultar","Clientes"))
+                    sair = 0
+                    break
+                elif consulta == 2:
+                    print(SubOpcao("Consultar","Usuarios"))
+                    sair = 0
+                    break
+                elif consulta == 3:
+                    print(SubOpcao("Consultar","Fornecedor"))
+                    sair = 0
+                    break
+                elif consulta == 4:
+                    print(SubOpcao("Consultar","Produtos"))
+                    sair = 0
+                    break
+                elif consulta == 5:
+                    print(SubOpcao("Consultar","Colaborador"))
+                    sair = 0
+                    break
                 
         elif valida == 3:
-            titulo("Menu Alterar/Deletar")
-            lista()
-            resp = input(">>")
-            altdel = TrataResp(resp)
-            if altdel is None:
-                print("Opcao invalida, por favor escolha uma opcao valida!")
-            elif altdel == 0:
-                MenuPrinc()
+            while True:
+                titulo("Menu Alterar/Deletar")
+                lista()
+                resp = input(">>")
+                altdel = TrataResp(resp)
+                if altdel is None:
+                    PrintOpInvalida()
+                elif altdel == 0:
+                    MenuPrinc(1)
+                elif altdel == 1:
+                    print(SubOpcao("Alterar/Deletar","Clientes"))
+                    sair = 0
+                    break
+                elif altdel == 2:
+                    print(SubOpcao("Alterar/Deletar","Usuarios"))
+                    sair = 0
+                    break
+                elif altdel == 3:
+                    print(SubOpcao("Alterar/Deletar","Fornecedor"))
+                    sair = 0
+                    break
+                elif altdel == 4:
+                    print(SubOpcao("Alterar/Deletar","Produtos"))
+                    sair = 0
+                    break
+                elif altdel == 5:
+                    print(SubOpcao("Alterar/Deletar","Colaborador"))
+                    sair = 0
+                    break
             
         else:
-            print(f"\x1b[31;1m Opcao nao existe!\x1b[0m")
+            PrintOpInvalida()
 
 
-MenuPrinc()
+MenuPrinc(1)
                 
-
