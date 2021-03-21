@@ -63,22 +63,32 @@ def MenuPrinc(sair):
                         MenuPrinc(1)
                     elif cadastro == 1:
                         print(SubOpcao("Cadastro","Clientes"))
+                        import Cadastros.cadcli as CadCli
+                        CadCli
                         sair = 0
                         break
                     elif cadastro == 2:
                         print(SubOpcao("Cadastro","Usuarios"))
+                        import Cadastros.caduser as CadUser
+                        CadUser
                         sair = 0
                         break
                     elif cadastro == 3:
                         print(SubOpcao("Cadastro","Fornecedor"))
+                        import Cadastros.cadforn as CadForn
+                        CadForn
                         sair = 0
                         break
                     elif cadastro == 4:
                         print(SubOpcao("Cadastro","Produtos"))
+                        import Cadastros.cadprod as CadProd
+                        CadProd
                         sair = 0
                         break
                     elif cadastro == 5:
                         print(SubOpcao("Cadastro","Colaborador"))
+                        import Cadastros.cadcolab as CadColab
+                        CadColab
                         sair = 0
                         break
                     else:
