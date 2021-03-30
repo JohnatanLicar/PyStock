@@ -17,10 +17,10 @@
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
 - [x] Menu Principal
-- [ ] Cadastro
+- [x] Cadastro
   - [X] Menu 
   - [ ] Gavar Cadastro
-  - [ ] Banco de Dados
+  - [X] Banco de Dados
 - [ ] Consulta
 - [ ] Alterar / Deletar
 - [ ] Outros
