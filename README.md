@@ -17,13 +17,20 @@
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
 - [x] Menu Principal
-- [-] Cadastro
+- [ ] Cadastro
   - [X] Menu 
   - [ ] Gavar Cadastro
   - [X] Banco de Dados
 - [ ] Consulta
+  - [X] Menu 
+  - [ ] Gavar Cadastro
+  - [X] Banco de Dados
 - [ ] Alterar / Deletar
+  - [X] Menu 
+  - [ ] Gavar Cadastro
+  - [X] Banco de Dados
 - [ ] Outros
+  - [ ] Bug ao entrar e sair do menu cadastro (sistema nao encerra)
 
 ## 💻 Pré-requisitos
 
