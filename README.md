@@ -17,7 +17,7 @@
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
 - [x] Menu Principal
-- [x] Cadastro
+- [-] Cadastro
   - [X] Menu 
   - [ ] Gavar Cadastro
   - [X] Banco de Dados
