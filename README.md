@@ -18,6 +18,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [x] Menu Principal
 - [ ] Cadastro
+  - [X] Menu 
+  - [ ] Gavar Cadastro
+  - [ ] Banco de Dados
 - [ ] Consulta
 - [ ] Alterar / Deletar
 - [ ] Outros
