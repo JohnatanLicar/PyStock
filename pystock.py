@@ -60,7 +60,8 @@ def MenuPrinc(sair):
                     if cadastro is None:
                         PrintOpInvalida()
                     elif cadastro == 0:
-                        MenuPrinc(1)
+                        sair = 1
+                        break
                     elif cadastro == 1:
                         print(SubOpcao("Cadastro","Clientes"))
                         import Cadastros.cadcli as CadCli
@@ -104,7 +105,8 @@ def MenuPrinc(sair):
                 if consulta is None:
                     PrintOpInvalida()
                 elif consulta == 0:
-                    MenuPrinc(1)
+                    sair = 1
+                    break
                 elif consulta == 1:
                     print(SubOpcao("Consultar","Clientes"))
                     sair = 0
@@ -135,7 +137,8 @@ def MenuPrinc(sair):
                 if altdel is None:
                     PrintOpInvalida()
                 elif altdel == 0:
-                    MenuPrinc(1)
+                    sair = 1
+                    break
                 elif altdel == 1:
                     print(SubOpcao("Alterar/Deletar","Clientes"))
                     sair = 0
