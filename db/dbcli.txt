@@ -1,1 +1,9 @@
-Johnatan Licar, 00000000000, Rua x, Prox a Escola,0, +55 (00) 00000-0000, johnatanlicar@gmail.com, Programador
+Johnatan Licar, 11111111111, Rua e, nrnhum,1 , (00)00000 0000, thiagochis@gmail.com, autonomo
+Thiago chis, 11111111111, Rua e, nrnhum,1 , (00)00000 0000, thiagochis@gmail.com, autonomo
+Johnatan Licar, 11111111111, Rua e, nrnhum,1 , (00)00000 0000, johnatanlicar@gmail.com, autonomo
+Johnatan Licar, 11111111111, Rua e, nemnhum,1 , (00)00000 0000, johnatanlicar@gmail.com, autonomo
+Johnatan Licar, 11111111111, Rua e, nemnhum,1 , (00)00000 0000, johnatanlicar@gmail.com, autonomo
+Johnatan Licar, 11111111111, Rua e, nemnhum,1 , (00)00000 0000, johnatanlicar@gmail.com, autonomo
+Johnatan Licar, 11111111111, Rua e, nemnhum,1 , (00)00000 0000, johnatanlicar@gmail.com, autonomo
+Johnatan Licar, 11111111111, Rua e, nemnhum,1 , (00)00000 0000, johnatanlicar@gmail.com, autonomo
+Johnatan, 55555555555, Rus 5, Casa Branca,5, (00)05555 5555, johnatanlicar@gmail.com, T.I
