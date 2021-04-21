@@ -19,12 +19,9 @@ email = input(f"Digite o email\n>>> ")
 prof = input(f"Digite sua Proficao\n>>> ")
 cadastro = (f'{nome}, {cpf}, {endRuaAV}, {endComp},{endNum}, {numTel}, {email}, {prof}')
 bdclientes = list()
-bdclientes.append(cadastro)
-print(type(cadastro))
-print(cadastro[:1])
-print(bdclientes)
 from os import getcwd
 local = f'{getcwd()}/db/dbcli.txt'
-with open(local, "w") as gravar:
-    gravar.writelines(bdclientes)
-
+bdclientes.append(cadastro)
+gravar = open(local, 'a')
+gravar.write(f"{cadastro}\n")
+gravar.close()
