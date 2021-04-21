@@ -17,20 +17,28 @@
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
 - [x] Menu Principal
+- [X] Sub Menus
+- [X] Banco de Dados
 - [ ] Cadastro
-  - [X] Menu 
-  - [ ] Gavar Cadastro
-  - [X] Banco de Dados
+  - [x] Cliente
+  - [ ] Usuario
+  - [ ] Fornecedor
+  - [ ] Produtos
+  - [ ] Colaborador
 - [ ] Consulta
-  - [X] Menu 
-  - [ ] Gavar Cadastro
-  - [X] Banco de Dados
+  - [ ] Cliente
+  - [ ] Usuario
+  - [ ] Fornecedor
+  - [ ] Produtos
+  - [ ] Colaborador
 - [ ] Alterar / Deletar
-  - [X] Menu 
-  - [ ] Gavar Cadastro
-  - [X] Banco de Dados
+    - [ ] Cliente
+    - [ ] Usuario
+    - [ ] Fornecedor
+    - [ ] Produtos
+    - [ ] Colaborador
 - [ ] Outros
-  - [ ] Bug ao entrar e sair do menu cadastro (sistema nao encerra)
+  - [x] Bug ao entrar e sair do menu cadastro (sistema nao encerra)
 
 ## 💻 Pré-requisitos
 
