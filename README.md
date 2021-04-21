@@ -30,7 +30,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
   - [ ] Gavar Cadastro
   - [X] Banco de Dados
 - [ ] Outros
-  - [ ] Bug ao entrar e sair do menu cadastro (sistema nao encerra)
+  - [x] Bug ao entrar e sair do menu cadastro (sistema nao encerra)
 
 ## 💻 Pré-requisitos
 
