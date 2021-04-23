@@ -1,10 +1,11 @@
 from os import getcwd
+
 def Gravar(src,dados):
     local = f'{getcwd()}/db/{src}.txt'
     gravar = open(local, 'a')
     gravar.write(f"{dados}\n")
     gravar.close()
-
+    
 def Cliente():
     """ Cliente com seus dados para cadastro
     Nome completo / CPF valido / Endereco: Av ou Rua, Complemento, e Numero da residencia / 
@@ -35,6 +36,7 @@ def Colaborador():
     Codigo / Nome Completo / CPF Valido / Endereco: AV ou Rua, Complemento, Numero da residencia /
     Numero de contato / Email / Cargo na empresa / Setor """
 
+
 def Fornecedor():
     """ Aquele que fornerce produtos para a empresa
     Nome Razao Social / CNPJ Valido / Endereco AV. ou Rua, Complemento, Numero(residencia/Predio/Escritorio) / 
@@ -44,8 +46,8 @@ def Produto():
     """ Produto de um Fornecedor e pronto para venda ao cliente
     Descrica do Produto / Quantidade em estoque / Valor de Venda / Categoria / Nome do fornecedor /
      """
+
 def Usuario():
     """ Usuario que vai estar utilizando o sistema
     Nome de usuario / Senha / Permicoes (Adm,Comum,Basico) / Codigo do Colaborador / Nome do Colaborador """
-
-
+    
