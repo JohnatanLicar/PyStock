@@ -1,3 +1,4 @@
+import cadastro as cad
 print("# "*25)
 print("Bem-vindo ao PyStock - Estoques de Produtos".center(50))
 
@@ -64,32 +65,27 @@ def MenuPrinc(sair):
                         break
                     elif cadastro == 1:
                         print(SubOpcao("Cadastro","Clientes"))
-                        from cadastro import Cliente
-                        Cliente()
+                        cad.Cliente()
                         sair = 0
                         break
                     elif cadastro == 2:
                         print(SubOpcao("Cadastro","Usuarios"))
-                        from cadastro import Usuario
-                        Usuario()
+                        cad.Usuario()
                         sair = 0
                         break
                     elif cadastro == 3:
                         print(SubOpcao("Cadastro","Fornecedor"))
-                        from cadastro import Fornecedor
-                        Fornecedor()
+                        cad.Fornecedor()
                         sair = 0
                         break
                     elif cadastro == 4:
                         print(SubOpcao("Cadastro","Produtos"))
-                        from cadastro import Produto
-                        Produto()
+                        cad.Produto()
                         sair = 0
                         break
                     elif cadastro == 5:
                         print(SubOpcao("Cadastro","Colaborador"))
-                        from cadastro import Colaborador
-                        Colaborador()
+                        cad.Colaborador()
                         sair = 0
                         break
                     else:
