@@ -1,10 +1,24 @@
 from os import getcwd
+from csv import DictWriter
+from pathlib import Path
 
 def Gravar(src,dados):
-    local = f'{getcwd()}/db/{src}.txt'
-    gravar = open(local, 'a')
-    gravar.write(f"{dados}\n")
-    gravar.close()
+    local = f'{getcwd()}/db/{src}.csv'
+    verifica = Path(local)
+    l = None
+    if verifica.exists():
+        l = 'a'
+        if src == 'dbcli':
+            with open(local, l) as clientes:
+                grava_csv = DictWriter(clientes, fieldnames=['NOME','CPF','ENDERECO','BAIRRO','CEP','CELULAR','EMAIL','PROFICAO'])
+                grava_csv.writerow({'NOME':dados[0],'CPF':dados[1],'ENDERECO':dados[2],'BAIRRO':dados[3],'CEP':dados[4],'CELULAR':dados[5],'EMAIL':dados[6],'PROFICAO':dados[7]})
+    else:
+        l = 'w'
+        if src == 'dbcli':
+            with open(local, l) as clientes:
+                    grava_csv = DictWriter(clientes, fieldnames=['NOME','CPF','ENDERECO','BAIRRO','CEP','CELULAR','EMAIL','PROFICAO'])
+                    grava_csv.writeheader()
+                    grava_csv.writerow({'NOME':dados[0],'CPF':dados[1],'ENDERECO':dados[2],'BAIRRO':dados[3],'CEP':dados[4],'CELULAR':dados[5],'EMAIL':dados[6],'PROFICAO':dados[7]})
     
 def Cliente():
     """ Cliente com seus dados para cadastro
@@ -23,14 +37,23 @@ def Cliente():
         else:
             break
 
-    endRuaAV = input(f"Digite o Endereco do Cliente\nRua/AV >>> ")
-    endComp = input("Complemento >>> ")
-    endNum = input("Numero >>> ")
+    endereco = input(f"Digite o Endereco: >>> ")
+    bairro = input("Digite o Bairro >>> ")
+    cep = input("Numero do CEP >>> ")
     numTel = input(f"Digite um numero para contato\n>>> ")
     email = input(f"Digite o email\n>>> ")
     prof = input(f"Digite sua Proficao\n>>> ")
-    cadastro = (f'{nome}, {cpf}, {endRuaAV}, {endComp},{endNum}, {numTel}, {email}, {prof}')
-    Gravar("dbcli",cadastro)
+    """nome ='Thiago'
+    cpf = '000.000.000-00'
+    endereco = 'Rua x, Nº 0'
+    bairro = 'Bairro y'
+    cep = '00000-000'
+    numTel = '(00)90000 0000'
+    email = 'thiago@email.com'
+    prof = 'Programador'"""
+    cadcli = [nome,cpf,endereco,bairro,cep,numTel,email,prof]
+    #cadcli = [f'Johnatan Licar', '000.000.000-00', 'Rua 00, QD 00, Nº 0', 'Bairro X','000000-000','(00)90000-0000', 'email@email.com','ti']
+    Gravar("dbcli",cadcli)
 def Colaborador():
     """ Colaborador para realizar uma venda e atender ao cliente
     Codigo / Nome Completo / CPF Valido / Endereco: AV ou Rua, Complemento, Numero da residencia /
@@ -50,4 +73,5 @@ def Produto():
 def Usuario():
     """ Usuario que vai estar utilizando o sistema
     Nome de usuario / Senha / Permicoes (Adm,Comum,Basico) / Codigo do Colaborador / Nome do Colaborador """
-    
+
+Cliente()
