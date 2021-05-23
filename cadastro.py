@@ -43,16 +43,7 @@ def Cliente():
     numTel = input(f"Digite um numero para contato\n>>> ")
     email = input(f"Digite o email\n>>> ")
     prof = input(f"Digite sua Proficao\n>>> ")
-    """nome ='Thiago'
-    cpf = '000.000.000-00'
-    endereco = 'Rua x, Nº 0'
-    bairro = 'Bairro y'
-    cep = '00000-000'
-    numTel = '(00)90000 0000'
-    email = 'thiago@email.com'
-    prof = 'Programador'"""
     cadcli = [nome,cpf,endereco,bairro,cep,numTel,email,prof]
-    #cadcli = [f'Johnatan Licar', '000.000.000-00', 'Rua 00, QD 00, Nº 0', 'Bairro X','000000-000','(00)90000-0000', 'email@email.com','ti']
     Gravar("dbcli",cadcli)
 def Colaborador():
     """ Colaborador para realizar uma venda e atender ao cliente
