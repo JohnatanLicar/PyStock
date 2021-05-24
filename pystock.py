@@ -65,8 +65,7 @@ def MenuPrinc(sair):
                         break
                     elif cadastro == 1:
                         print(SubOpcao("Cadastro","Clientes"))
-                        cad.Cliente()
-                        sair = 0
+                        cad.cliente()
                         break
                     elif cadastro == 2:
                         print(SubOpcao("Cadastro","Usuarios"))
@@ -159,6 +158,6 @@ def MenuPrinc(sair):
         else:
             PrintOpInvalida()
 
-
-MenuPrinc(1)
+if __name__ == "__main__":
+    MenuPrinc(1)
                 
