@@ -1,26 +1,50 @@
 from os import getcwd
-from csv import DictWriter
+from csv import DictWriter, DictReader
 from pathlib import Path
 
-def Gravar(src,dados):
-    local = f'{getcwd()}/db/{src}.csv'
-    verifica = Path(local)
-    l = None
-    if verifica.exists():
-        l = 'a'
-        if src == 'dbcli':
-            with open(local, l) as clientes:
-                grava_csv = DictWriter(clientes, fieldnames=['NOME','CPF','ENDERECO','BAIRRO','CEP','CELULAR','EMAIL','PROFICAO'])
-                grava_csv.writerow({'NOME':dados[0],'CPF':dados[1],'ENDERECO':dados[2],'BAIRRO':dados[3],'CEP':dados[4],'CELULAR':dados[5],'EMAIL':dados[6],'PROFICAO':dados[7]})
-    else:
-        l = 'w'
-        if src == 'dbcli':
-            with open(local, l) as clientes:
-                    grava_csv = DictWriter(clientes, fieldnames=['NOME','CPF','ENDERECO','BAIRRO','CEP','CELULAR','EMAIL','PROFICAO'])
+
+class Pessoa():
+
+    def __init__(self,nome, cpf,endereco,bairro,cep,celular,email,proficao):
+        self.__nome = nome
+        self.__cpf = cpf
+        self.__endereco = endereco
+        self.__bairro = bairro
+        self.__cep = cep
+        self.__celular = celular
+        self.__email = email
+        self.__proficao = proficao
+
+
+class Cliente(Pessoa):
+    def __init__(self,nome,cpf,endereco,bairro,cep,celular,email,proficao,credito,situacao):
+        super().__init__(nome,cpf,endereco,bairro,cep,celular,email,proficao)
+        self.__credito = credito
+        self.__situacao = situacao
+
+    def mostra_nome(self):
+        return self._Pessoa__nome
+
+    def gravar(self):
+        try:
+            with open(f'{getcwd()}/db/dbcli.csv') as ler:
+                ler_csv = DictReader(ler,delimiter=';')
+                for linha in ler_csv:
+                    id_Cli = int(linha['ID'])
+                id_Cli = id_Cli + 1
+
+            with open(f'{getcwd()}/db/dbcli.csv', 'a') as clientes:
+                grava_csv = DictWriter(clientes,delimiter=';', fieldnames=['ID','NOME','CPF','ENDERECO','BAIRRO','CEP','CELULAR','EMAIL','PROFICAO','SALDO/DEVEDOR','SITUACAO'])
+                grava_csv.writerow({'ID':id_Cli,'NOME':self._Pessoa__nome,'CPF':self._Pessoa__cpf,'ENDERECO':self._Pessoa__endereco,'BAIRRO':self._Pessoa__bairro,'CEP':self._Pessoa__cep,'CELULAR':self._Pessoa__celular,'EMAIL':self._Pessoa__email,'PROFICAO':self._Pessoa__proficao,'SALDO/DEVEDOR':self.__credito,'SITUACAO':self.__situacao})
+                return 'ok'
+        except:
+            with open(f'{getcwd()}/db/dbcli.csv', 'w') as clientes:
+                    grava_csv = DictWriter(clientes,delimiter=';', fieldnames=['ID','NOME','CPF','ENDERECO','BAIRRO','CEP','CELULAR','EMAIL','PROFICAO','SALDO/DEVEDOR','SITUACAO'])
                     grava_csv.writeheader()
-                    grava_csv.writerow({'NOME':dados[0],'CPF':dados[1],'ENDERECO':dados[2],'BAIRRO':dados[3],'CEP':dados[4],'CELULAR':dados[5],'EMAIL':dados[6],'PROFICAO':dados[7]})
-    
-def Cliente():
+                    grava_csv.writerow({'ID':'100','NOME':self._Pessoa__nome,'CPF':self._Pessoa__cpf,'ENDERECO':self._Pessoa__endereco,'BAIRRO':self._Pessoa__bairro,'CEP':self._Pessoa__cep,'CELULAR':self._Pessoa__celular,'EMAIL':self._Pessoa__email,'PROFICAO':self._Pessoa__proficao,'SALDO/DEVEDOR':self.__credito,'SITUACAO':self.__situacao})
+                    return 'ok'
+        
+def cliente():
     """ Cliente com seus dados para cadastro
     Nome completo / CPF valido / Endereco: Av ou Rua, Complemento, e Numero da residencia / 
     Numero de contato / Email / e Proficao """
@@ -43,8 +67,12 @@ def Cliente():
     numTel = input(f"Digite um numero para contato\n>>> ")
     email = input(f"Digite o email\n>>> ")
     prof = input(f"Digite sua Proficao\n>>> ")
-    cadcli = [nome,cpf,endereco,bairro,cep,numTel,email,prof]
-    Gravar("dbcli",cadcli)
+    novo_cliente = Cliente(nome,cpf,endereco,bairro,cep,numTel,email,prof,0,'Ativa')
+    resp = novo_cliente.gravar()
+    if resp == 'ok':
+        print(f'Cliente {novo_cliente.mostra_nome()} Gravado com Sucesso!')
+    else:
+        print(f'ERRO ao gravar o Cliente {novo_cliente.mostra_nome()}, tente novamente!')
 def Colaborador():
     """ Colaborador para realizar uma venda e atender ao cliente
     Codigo / Nome Completo / CPF Valido / Endereco: AV ou Rua, Complemento, Numero da residencia /
@@ -65,4 +93,3 @@ def Usuario():
     """ Usuario que vai estar utilizando o sistema
     Nome de usuario / Senha / Permicoes (Adm,Comum,Basico) / Codigo do Colaborador / Nome do Colaborador """
 
-Cliente()
