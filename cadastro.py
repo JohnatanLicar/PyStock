@@ -21,6 +21,7 @@ class Cliente(Pessoa):
         self.__credito = credito
         self.__situacao = situacao
 
+    @property
     def mostra_nome(self):
         return self._Pessoa__nome
 
@@ -50,6 +51,7 @@ class Colaborador(Pessoa):
         self.__setor = setor
         self.__usuario = usuario
 
+    @property
     def mostra_nome(self):
         return self._Pessoa__nome
 
@@ -149,4 +151,3 @@ def produto():
 def usuario():
     """ Usuario que vai estar utilizando o sistema
     Nome de usuario / Senha / Permicoes (Adm,Comum,Basico) / Codigo do Colaborador / Nome do Colaborador """
-colaborador()
