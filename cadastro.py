@@ -85,6 +85,26 @@ class Fornecedor():
         self.__contato = contato
         self.__email = email
 
+    def gravar(self):
+        try:
+            with open(f'{getcwd()}/db/dbforn.csv',) as ler_csv:
+                forn_csv = DictReader(ler_csv, delimiter=';')
+                for linha in forn_csv:
+                    id_forn = int(linha['ID'])
+                id_forn = id_forn + 1
+
+            with open(f'{getcwd()}/db/dbforn.csv', 'a') as dados:
+                grava_forn = DictWriter(dados,delimiter=';', fieldnames=['ID','RAZAO_SOCIAL','NOME_FANTASIA','CNPJ','ENDERECO','BAIRRO','CEP','CONTATO','EMAIL'])
+                grava_forn.writerow({'ID':id_forn,'RAZAO_SOCIAL':self.__razaosocial,'NOME_FANTASIA':self.__nomefantasia,'CNPJ':self.__cnpj,'ENDERECO':self.__endereco,'BAIRRO':self.__bairro,'CEP':self.__cep,'CONTATO':self.__contato,'EMAIL':self.__email})
+                return 'ok'
+        except:
+            with open(f'{getcwd()}/db/dbforn.csv', 'w') as dados:
+                grava_forn = DictWriter(dados,delimiter=';',fieldnames=['ID','RAZAO_SOCIAL','NOME_FANTASIA','CNPJ','ENDERECO','BAIRRO','CEP','CONTATO','EMAIL'])
+                grava_forn.writeheader()
+                grava_forn.writerow({'ID':'100','RAZAO_SOCIAL':self.__razaosocial,'NOME_FANTASIA':self.__nomefantasia,'CNPJ':self.__cnpj,'ENDERECO':self.__endereco,'BAIRRO':self.__bairro,'CEP':self.__cep,'CONTATO':self.__contato,'EMAIL':self.__email})
+
+
+
 class Produtos():
     def __init__(self,descricao,fornecedor,codbarras,quantidades,valor,):
         self.__decricao = descricao
